@@ -15,7 +15,9 @@ namespace Ejercicio_13
             double BinarioDecimal(string). Convierte un número binario a entero.*/
             Console.Title = "Ejercicio Nro 13";
 
-            Console.WriteLine(Conversor.DecimalBinario(10));
+            Console.WriteLine(Conversor.DecimalBinario(20));
+            Console.WriteLine(Conversor.BinarioDecimal("10100"));
+
             Console.ReadKey();
 
         }

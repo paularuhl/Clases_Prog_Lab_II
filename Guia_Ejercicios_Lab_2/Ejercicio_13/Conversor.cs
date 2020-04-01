@@ -33,35 +33,15 @@ namespace Ejercicio_13
 
         public static int BinarioDecimal(string numeroBinario)
         {
-            int[] arrayBinario = new int[numeroBinario.Length];
-            string numeroDecimal = "";
             double numero = 0;
-            bool flag = true;
-            int largoArrayBinario = arrayBinario.Length;
-            int i;
-            for (i = 0; i < numeroBinario.Length; i++)
+            int largoArrayBinario = numeroBinario.Length;
+
+            for (int i = 0; i < largoArrayBinario; i++)
             {
-                arrayBinario[i] = (int)char.GetNumericValue(numeroBinario[i]);
-                if (arrayBinario[i] != 0 && arrayBinario[i] != 1)
-                {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag == true)
-            {
-                for (i = 0; i < largoArrayBinario; i++)
-                {
-                    numero += (arrayBinario[i] * Math.Pow(2, largoArrayBinario - i - 1));
-                }
-                numeroDecimal = numero.ToString();
-            }
-            else
-            {
-                numeroDecimal = "Valor invalido";
+                numero += double.Parse(numeroBinario[i].ToString()) * Math.Pow(2, largoArrayBinario - i - 1);
             }
 
-            return numeroDecimal;
+            return (int)numero;
         }
     }
 }
