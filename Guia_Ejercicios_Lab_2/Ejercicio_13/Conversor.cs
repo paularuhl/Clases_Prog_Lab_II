@@ -15,17 +15,17 @@ namespace Ejercicio_13
 
         public static string DecimalBinario(int numeroDecimal)
         {
-            string binario = String.Empty;
+            string numeroBinario = String.Empty;
 
             do
             {
-                binario = binario + (numeroDecimal % 2);
+                numeroBinario = numeroBinario + (numeroDecimal % 2);
                 numeroDecimal = numeroDecimal / 2;
-                if (numeroDecimal < 2) binario = binario + numeroDecimal;
+                if (numeroDecimal < 2) numeroBinario = numeroBinario + numeroDecimal;
 
             } while (numeroDecimal > 1);
 
-            char[] charArray = binario.ToCharArray();
+            char[] charArray = numeroBinario.ToCharArray();
             Array.Reverse(charArray);
 
             return new string(charArray);
