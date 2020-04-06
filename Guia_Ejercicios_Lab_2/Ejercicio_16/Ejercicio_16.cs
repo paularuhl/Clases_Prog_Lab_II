@@ -10,6 +10,8 @@ namespace Ejercicio_16
     {
         static void Main(string[] args)
         {
+            Console.Title = "Ejercicio Nro 16";
+
             Alumno alumnoUno = new Alumno();
             Alumno alumnoDos = new Alumno();
             Alumno alumnoTres = new Alumno();
