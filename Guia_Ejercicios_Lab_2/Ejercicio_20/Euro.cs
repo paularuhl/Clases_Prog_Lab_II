@@ -9,11 +9,11 @@ namespace Billetes
     public class Euro
     {
         private double cantidad;
-        private static double cotizRespectoDolar = 1;
+        private static double cotizRespectoDolar;
 
         static Euro()
         {
-            cotizRespectoDolar = 1;
+            cotizRespectoDolar = 1.16;
         }
 
         public Euro(double cantidad)
@@ -28,7 +28,7 @@ namespace Billetes
 
         public static explicit operator Dolar(Euro e)
         {
-            return (Dolar)e;
+            return new Dolar(e.cantidad / GetCotizacion());
         }
 
         public static explicit operator Pesos(Euro e)

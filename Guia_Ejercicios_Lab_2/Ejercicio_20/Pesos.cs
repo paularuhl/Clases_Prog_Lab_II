@@ -9,11 +9,11 @@ namespace Billetes
     public class Pesos
     {
         private double cantidad;
-        private static double cotizRespectoDolar = 1;
+        private static double cotizRespectoDolar;
 
         static Pesos()
         {
-            cotizRespectoDolar = 1;
+            cotizRespectoDolar = 38.33;
         }
 
         public Pesos(double cantidad)
@@ -28,11 +28,12 @@ namespace Billetes
 
         public static explicit operator Dolar(Pesos p)
         {
-
+            return new Dolar(p.cantidad / GetCotizacion());
         }
 
         public static explicit operator Euro(Pesos p)
         {
+            return (Euro)((Dolar)p);
         }
 
         public static double GetCotizacion()
@@ -47,20 +48,21 @@ namespace Billetes
 
         public static implicit operator Pesos(double d)
         {
-
+            return new Pesos(d);
         }
 
         public static bool operator !=(Pesos p, Dolar d)
         {
-
+            return p.GetCantidad() != ((Pesos)d).GetCantidad();
         }
         public static bool operator !=(Pesos p, Euro e)
         {
+            return p.GetCantidad() != ((Pesos)e).GetCantidad();
 
         }
         public static bool operator !=(Pesos p1, Pesos p2)
         {
-
+            return p1.GetCantidad() != p2.GetCantidad();
         }
 
 

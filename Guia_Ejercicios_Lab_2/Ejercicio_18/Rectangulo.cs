@@ -17,12 +17,12 @@ namespace Geometria
 
         public float Area()
         {
-
+            return 0;
         }
 
         public float Perimetro()
         {
-
+            return 0;
         }
 
         public Rectangulo(Punto vertice1, Punto vertice3)
