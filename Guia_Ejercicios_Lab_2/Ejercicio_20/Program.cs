@@ -15,7 +15,7 @@ namespace Ejercicio_20
             var euro = new Euro(1.16);
             var pesos = new Pesos(38.33);
 
-            if(dolar == euro)
+            if (dolar == euro)
             {
                 Console.WriteLine("el dolar y euro son iguales");
             }
@@ -29,6 +29,12 @@ namespace Ejercicio_20
             {
                 Console.WriteLine("los pesos y euro son iguales");
             }
+
+            Console.WriteLine(((Pesos)euro).GetCantidad());
+            pesos = pesos + euro;
+            Euro eu = (Euro)pesos;
+
+            Console.WriteLine(eu.GetCantidad());
 
             Console.ReadKey();
         }

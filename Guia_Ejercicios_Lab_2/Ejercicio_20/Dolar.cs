@@ -28,12 +28,12 @@ namespace Billetes
 
         public static explicit operator Euro(Dolar d)
         {
-            return new Euro(d.cantidad * Euro.GetCotizacion());
+            return d.cantidad * Euro.GetCotizacion();
         }
 
         public static explicit operator Pesos(Dolar d)
         {
-            return new Pesos(d.cantidad * Pesos.GetCotizacion());
+            return d.cantidad * Pesos.GetCotizacion();
         }
 
         public double GetCantidad()
@@ -65,6 +65,36 @@ namespace Billetes
         {
             return d1.GetCantidad() != d2.GetCantidad();
 
+        }
+
+        public static Dolar operator +(Dolar d1, Dolar d2)
+        {
+            return d1.GetCantidad() + d2.GetCantidad();
+        }
+
+        public static Dolar operator +(Dolar d, Euro e)
+        {
+            return d.GetCantidad() + ((Dolar)e).GetCantidad();
+        }
+
+        public static Dolar operator +(Dolar d, Pesos p)
+        {
+            return d.GetCantidad() + ((Dolar)p).GetCantidad();
+        }
+
+        public static Dolar operator -(Dolar d1, Dolar d2)
+        {
+            return d1.GetCantidad() - d2.GetCantidad();
+        }
+
+        public static Dolar operator -(Dolar d, Euro e)
+        {
+            return d.GetCantidad() - ((Dolar)e).GetCantidad();
+        }
+
+        public static Dolar operator -(Dolar d, Pesos p)
+        {
+            return d.GetCantidad() - ((Dolar)p).GetCantidad();
         }
 
         public static bool operator ==(Dolar d, Euro e)

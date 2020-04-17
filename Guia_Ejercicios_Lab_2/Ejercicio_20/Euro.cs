@@ -64,6 +64,37 @@ namespace Billetes
             return e1.GetCantidad() != e2.GetCantidad();
         }
 
+        public static Euro operator +(Euro e1, Euro e2)
+        {
+            return e1.GetCantidad() + e2.GetCantidad();
+        }
+
+        public static Euro operator +(Euro e, Dolar d)
+        {
+            return e.GetCantidad() + ((Euro)d).GetCantidad();
+        }
+
+        public static Euro operator +(Euro e, Pesos p)
+        {
+            return e.GetCantidad() + ((Euro)((Dolar)p)).GetCantidad();
+        }
+
+
+        public static Euro operator -(Euro e1, Euro e2)
+        {
+            return e1.GetCantidad() - e2.GetCantidad();
+        }
+
+        public static Euro operator -(Euro e, Dolar d)
+        {
+            return e.GetCantidad() - ((Euro)d).GetCantidad();
+        }
+
+        public static Euro operator -(Euro e, Pesos p)
+        {
+            return e.GetCantidad() - ((Euro)((Dolar)p)).GetCantidad();
+        }
+
 
         public static bool operator ==(Euro e, Dolar d)
         {
