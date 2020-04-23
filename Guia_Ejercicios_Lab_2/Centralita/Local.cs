@@ -34,7 +34,7 @@ namespace CentralitaHerencia
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat(base.Mostrar());
-            sb.AppendFormat("CostoLlamada: {0} \n", CostoLlamada);
+            sb.AppendFormat(" Costo de llamada: {0}", CostoLlamada);
 
             return sb.ToString();
         }

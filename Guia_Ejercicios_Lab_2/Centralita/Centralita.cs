@@ -74,9 +74,17 @@ namespace CentralitaHerencia
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat("Razón Social: {0}\n", this.razonSocial);
             sb.AppendFormat("Ganancia Total: {0}\n", this.GananciasPorTotal);
-            sb.AppendFormat("Ganancia Total: {0}\n", this.GananciasPorLocal);
-            sb.AppendFormat("Ganancia Total: {0}\n", this.GananciasPorProvincial);
+            sb.AppendFormat("Ganancia Local: {0}\n", this.GananciasPorLocal);
+            sb.AppendFormat("Ganancia Provincial: {0}\n", this.GananciasPorProvincial);
 
+            sb.AppendLine("Detalle de llamadas:");
+
+            foreach(Llamada llamada in Llamadas)
+            {
+                if(llamada is Local) sb.AppendLine(((Local)llamada).Mostrar());
+                if (llamada is Provincial) sb.AppendLine(((Provincial)llamada).Mostrar());
+
+            }
             return sb.ToString();
         }
         public void OrdenarLlamadas()
