@@ -8,7 +8,12 @@ namespace CentralitaHerencia
     {
         protected Franja franjaHoraria;
 
-        public float CostoLlamada { get; }
+        public float CostoLlamada {
+            get
+            {
+                return CalcularCosto();
+            }
+        }
 
         private float CalcularCosto()
         {
@@ -32,8 +37,8 @@ namespace CentralitaHerencia
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat(base.Mostrar());
-            sb.AppendFormat("CostoLlamada: {0} ", CalcularCosto());
-            sb.AppendFormat("Franja Horaria: {0} ", this.franjaHoraria);
+            sb.AppendFormat("CostoLlamada: {0} ", this.CostoLlamada);
+            sb.AppendFormat("Franja Horaria: {0} \n", this.franjaHoraria);
 
             return sb.ToString();
         }

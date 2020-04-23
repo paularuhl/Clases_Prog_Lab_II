@@ -10,9 +10,24 @@ namespace CentralitaHerencia
         private List<Llamada> listaDeLlamadas;
         protected string razonSocial;
 
-        public float GananciasPorLocal { get; }
-        public float GananciasPorProvincial { get; }
-        public float GananciasPorTotal { get; }
+        public float GananciasPorLocal {
+            get
+            {
+                return CalcularGanancia(Llamada.TipoLlamada.Local);
+            }
+        }
+        public float GananciasPorProvincial {
+            get
+            {
+                return CalcularGanancia(Llamada.TipoLlamada.Provincial);
+            }
+        }
+        public float GananciasPorTotal {
+            get
+            {
+                return CalcularGanancia(Llamada.TipoLlamada.Todas);
+            }
+        }
         public List<Llamada> Llamadas {
             get
             {
@@ -22,21 +37,46 @@ namespace CentralitaHerencia
 
         private float CalcularGanancia(Llamada.TipoLlamada tipo)
         {
-            return 0;
+            float ganancia = 0;
+            foreach(Llamada llamada in Llamadas)
+            {
+                switch (tipo)
+                {
+                    case Llamada.TipoLlamada.Local:
+                        if(llamada is Local) ganancia += ((Local)llamada).CostoLlamada;
+                        break;
+                    case Llamada.TipoLlamada.Provincial:
+                        if (llamada is Provincial) ganancia += ((Provincial)llamada).CostoLlamada;
+                        break;
+                    case Llamada.TipoLlamada.Todas:
+                        if (llamada is Local)
+                            ganancia += ((Local)llamada).CostoLlamada;
+                        else if (llamada is Provincial)
+                            ganancia += ((Provincial)llamada).CostoLlamada;
+                        break;
+                }
+            }
+            return ganancia;
         }
 
         public Centralita()
         {
-
+            this.listaDeLlamadas = new List<Llamada>();
         }
 
-        public Centralita(string nombreEmpresa)
+        public Centralita(string nombreEmpresa) : this()
         {
             this.razonSocial = nombreEmpresa;
         }
+
         public string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("Razón Social: {0}\n", this.razonSocial);
+            sb.AppendFormat("Ganancia Total: {0}\n", this.GananciasPorTotal);
+            sb.AppendFormat("Ganancia Total: {0}\n", this.GananciasPorLocal);
+            sb.AppendFormat("Ganancia Total: {0}\n", this.GananciasPorProvincial);
+
             return sb.ToString();
         }
         public void OrdenarLlamadas()

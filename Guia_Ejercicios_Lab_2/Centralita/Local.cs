@@ -11,13 +11,13 @@ namespace CentralitaHerencia
         public float CostoLlamada {
             get
             {
-                return this.costo;
+                return CalcularCosto();
             }
         }
 
         private float CalcularCosto()
         {
-            return CostoLlamada * base.Duracion;
+            return this.costo * base.Duracion;
         }
 
         public Local(Llamada llamada, float costo) 
@@ -34,7 +34,7 @@ namespace CentralitaHerencia
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat(base.Mostrar());
-            sb.AppendFormat("CostoLlamada: {0} ", CalcularCosto());
+            sb.AppendFormat("CostoLlamada: {0} \n", CostoLlamada);
 
             return sb.ToString();
         }
