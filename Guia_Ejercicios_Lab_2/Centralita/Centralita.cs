@@ -43,16 +43,13 @@ namespace CentralitaHerencia
                 switch (tipo)
                 {
                     case Llamada.TipoLlamada.Local:
-                        if(llamada is Local) ganancia += ((Local)llamada).CostoLlamada;
+                        if(llamada is Local) ganancia += llamada.CostoLlamada;
                         break;
                     case Llamada.TipoLlamada.Provincial:
-                        if (llamada is Provincial) ganancia += ((Provincial)llamada).CostoLlamada;
+                        if (llamada is Provincial) ganancia += llamada.CostoLlamada;
                         break;
                     case Llamada.TipoLlamada.Todas:
-                        if (llamada is Local)
-                            ganancia += ((Local)llamada).CostoLlamada;
-                        else if (llamada is Provincial)
-                            ganancia += ((Provincial)llamada).CostoLlamada;
+                        ganancia += llamada.CostoLlamada;
                         break;
                 }
             }
@@ -69,7 +66,7 @@ namespace CentralitaHerencia
             this.razonSocial = nombreEmpresa;
         }
 
-        public string Mostrar()
+        private string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat("Razón Social: {0}\n", this.razonSocial);
@@ -81,15 +78,46 @@ namespace CentralitaHerencia
 
             foreach(Llamada llamada in Llamadas)
             {
-                if(llamada is Local) sb.AppendLine(((Local)llamada).Mostrar());
-                if (llamada is Provincial) sb.AppendLine(((Provincial)llamada).Mostrar());
-
+                sb.AppendLine(llamada.ToString());
             }
             return sb.ToString();
         }
+
+        public override string ToString()
+        {
+            return this.Mostrar();
+        }
+
         public void OrdenarLlamadas()
         {
             this.Llamadas.Sort((a, b) => Llamada.OrdenarPorDuracion(a, b));
         }
+
+
+        public static bool operator ==(Centralita c, Llamada llamada)
+        {
+            foreach(Llamada l in c.Llamadas)
+            {
+                if(l == llamada) return true;
+            }
+            return false;
+
+        }
+
+        public static bool operator !=(Centralita c, Llamada llamada)
+        {
+            return !(c == llamada);
+        }
+
+        public static Centralita operator +(Centralita c, Llamada llamada)
+        {
+            if (c != llamada)
+            {
+                c.Llamadas.Add(llamada);
+            }
+            return c;
+        }
+
+
     }
 }

@@ -8,7 +8,8 @@ namespace CentralitaHerencia
     {
         protected Franja franjaHoraria;
 
-        public float CostoLlamada {
+        public override float CostoLlamada
+        {
             get
             {
                 return CalcularCosto();
@@ -33,26 +34,35 @@ namespace CentralitaHerencia
             return costo;
         }
 
-        public string Mostrar()
+        protected override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat(base.Mostrar());
-            sb.AppendFormat(" Costo de llamada: {0} ", this.CostoLlamada);
-            sb.AppendFormat("Franja Horaria: {0}", this.franjaHoraria);
+            sb.AppendFormat(" Costo de llamada: {0} | Franja Horaria: {1}", this.CostoLlamada, this.franjaHoraria);
 
             return sb.ToString();
         }
 
-        public Provincial(Franja miFranja, Llamada llamada) 
-            : this(llamada.NroOrigen, miFranja, llamada.Duracion, llamada.NroDestino)
+        public override string ToString()
         {
-
+            return this.Mostrar();
         }
 
-        public Provincial(string origen, Franja miFranja, float duracion, string destino) 
+        public Provincial(Franja miFranja, Llamada llamada)
+            : this(llamada.NroOrigen, miFranja, llamada.Duracion, llamada.NroDestino)
+        {
+        }
+
+        public Provincial(string origen, Franja miFranja, float duracion, string destino)
             : base(duracion, destino, origen)
         {
             this.franjaHoraria = miFranja;
+        }
+
+
+        public override bool Equals(object obj)
+        {
+            return obj is Provincial;
         }
 
         public enum Franja

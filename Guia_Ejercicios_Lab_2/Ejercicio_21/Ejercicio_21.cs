@@ -12,6 +12,21 @@ namespace Ejercicio_21
         {
             
             Console.ReadKey();
+            Hola a = new Holis();
+            Holis b = (Holis)new Hola();
+
         }
+
+
+
     }
+
+    public class Hola
+    {
+
+    }
+
+    public class Holis : Hola { 
+    }
+
 }
