@@ -60,9 +60,9 @@
             this.radioCerveza.Name = "radioCerveza";
             this.radioCerveza.Size = new System.Drawing.Size(64, 17);
             this.radioCerveza.TabIndex = 1;
-            this.radioCerveza.TabStop = true;
             this.radioCerveza.Text = "Cerveza";
             this.radioCerveza.UseVisualStyleBackColor = true;
+            this.radioCerveza.Checked = true;
             // 
             // radioAgua
             // 
@@ -119,6 +119,7 @@
             this.btnAgregar.TabIndex = 7;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtMarca
             // 
@@ -197,8 +198,8 @@
             this.Controls.Add(this.radioCerveza);
             this.Controls.Add(this.barra1);
             this.Name = "FrmCantina";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Ruhl Paula";
+            this.Load += new System.EventHandler(this.FrmCantina_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericCapacidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericContenido)).EndInit();
             this.ResumeLayout(false);

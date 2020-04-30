@@ -43,7 +43,7 @@ namespace Entidades
             this.marca = marca;
         }
 
-        protected string GenerarInforme()
+        protected virtual string GenerarInforme()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat("Marca: {0} | Contenido: {1}ml | Capacidad: {2}l |", this.marca, this.Contenido, this.CapacidadLitros);

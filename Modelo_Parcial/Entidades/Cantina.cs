@@ -22,6 +22,7 @@ namespace Entidades
         private Cantina(int espacios)
         {
             this.botellas = new List<Botella>();
+            this.espaciosTotales = espacios;
         }
 
         public static Cantina GetCantina(int espacios)

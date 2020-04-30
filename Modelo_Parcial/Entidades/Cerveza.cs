@@ -12,7 +12,7 @@ namespace Entidades
         {
 
         }
-        public Cerveza(int capacidadML, string marca, Tipo tipo, int contenidoML) 
+        public Cerveza(int capacidadML, string marca, Tipo tipo, int contenidoML)
             : base(marca, capacidadML, contenidoML)
         {
             this.tipo = tipo;
@@ -34,11 +34,16 @@ namespace Entidades
             return servido;
         }
 
-        protected new string GenerarInforme()
+        protected override string GenerarInforme()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("{0} Tipo de botella: {1} | Medida: {2}ml", base.ToString(), tipo, MEDIDA);
+            sb.AppendFormat("{0} Tipo de botella: {1} | Medida: {2}ml", base.GenerarInforme(), tipo, MEDIDA);
             return sb.ToString();
+        }
+
+        public static implicit operator Botella.Tipo(Cerveza cerveza)
+        {
+            return cerveza.tipo;
         }
     }
 }

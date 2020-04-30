@@ -27,9 +27,9 @@ namespace ControlCantina
             set
             {
                 this.cantina = value;
-                /*this.cantina.Botellas.Add(new Cerveza(2000, "", Botella.Tipo.Vidrio, 2000));
+                this.cantina.Botellas.Add(new Cerveza(2000, "", Botella.Tipo.Vidrio, 2000));
                 this.cantina.Botellas.Add(new Agua(2000, "", 2000));
-                this.cantina.Botellas.Add(new Cerveza(2000, "", Botella.Tipo.Plastico, 2000));*/
+                this.cantina.Botellas.Add(new Cerveza(2000, "", Botella.Tipo.Plastico, 2000));
                 this.DibujarBotellas();
             }
         }
@@ -61,7 +61,7 @@ namespace ControlCantina
             }
             else
             {
-                Botella.Tipo tipo = Botella.Tipo.Vidrio;//((Cerveza)item);
+                Botella.Tipo tipo = ((Cerveza)item);
                 switch (tipo)
                 {
                     case Botella.Tipo.Plastico:
@@ -90,9 +90,14 @@ namespace ControlCantina
             // Muevo la botella a ser servida
             Point ubicacion = pb.Location;
             pb.Location = new System.Drawing.Point(125, 125);
+            string mensaje = "SIRVIENDO!";
 
             int cantidadServida = botella.ServirMedida();
-            MessageBox.Show(string.Format("SIRVIENDO! {1}ml\n{0}", botella.ToString(), cantidadServida), "Cantinero", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            if(cantidadServida == 0)
+            {
+                mensaje = "No queda más líquido!";
+            }
+            MessageBox.Show(string.Format("{2} {1}ml\n{0}", botella.ToString(), cantidadServida, mensaje), "Cantinero", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             pb.Location = ubicacion;
         }

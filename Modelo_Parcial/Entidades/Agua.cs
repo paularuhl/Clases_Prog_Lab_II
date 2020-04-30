@@ -8,15 +8,12 @@ namespace Entidades
     {
         const int MEDIDA = 400;
         public Agua(int capacidadML, string marca, int contenidoML)
-            : base(marca, capacidadML, contenidoML)
-        {
+            : base(marca, capacidadML, contenidoML) { }
 
-        }
-
-        protected new string GenerarInforme()
+        protected override string GenerarInforme()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("{0} MEDIDA: {1}ml", base.ToString(), MEDIDA);
+            sb.AppendFormat("{0} MEDIDA: {1}ml", base.GenerarInforme(), MEDIDA);
             return sb.ToString();
         }
 
