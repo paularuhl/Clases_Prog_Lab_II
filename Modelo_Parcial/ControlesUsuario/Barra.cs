@@ -61,7 +61,7 @@ namespace ControlCantina
             }
             else
             {
-                Botella.Tipo tipo = ((Cerveza)item);
+                Botella.Tipo tipo = Botella.Tipo.Vidrio;//((Cerveza)item);
                 switch (tipo)
                 {
                     case Botella.Tipo.Plastico:
