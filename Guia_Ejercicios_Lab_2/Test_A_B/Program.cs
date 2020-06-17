@@ -10,66 +10,45 @@ namespace Test_A_B
     {
         static void Main(string[] args)
         {
-
-            B b = new B();
-
-            A a = b;
-
-            a.F();
-
-            Console.ReadKey();
-
-            b.F();
-
-            Console.ReadKey();
-
-            a.G();
-
-            Console.ReadKey();
-
-            b.G();
-
-            Console.ReadKey();
-        }
-
-
-
-        public class B : A
-
-        {
-
-            new public void F() { Console.WriteLine("B.F()"); }
-
-            public override void G() { Console.WriteLine("B.G()"); }
-
-        }
-
-
-
-        public class A
-
-        {
-
-            public void F()
-
+            Stack<a> personas = new Stack<a>();
+            personas.Push(new c());
+            personas.Push(new a());
+            personas.Push(new b());
+            foreach(a letra in personas)
             {
-
-                Console.WriteLine("A.F()");
-
+                Console.WriteLine(letra.poop());
             }
-
-            public virtual void G()
-
-            {
-
-                Console.WriteLine("A.G()");
-
-            }
-
+            Console.ReadKey();
         }
 
 
 
 
+      
+
+
+
+    }
+
+    public class a
+    {
+        public virtual string poop()
+        {
+            return "aaa";
+        }
+    }
+    public class b : a
+    {
+        public override string poop()
+        {
+            return "eeeee";
+        }
+    }
+    public class c : a
+    {
+        public override string poop()
+        {
+            return "iii";
+        }
     }
 }
