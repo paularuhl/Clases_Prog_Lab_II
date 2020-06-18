@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca
+namespace Entidades
 {
     public static class MetodosExtension
     {
+        public enum Estaciones
+        {
+            Verano, Primavera, Invierno, Otonio
+        }
+
         public static string ObtenerPlacaCronica(this DateTime instance, Estaciones estacion)
         {
             Dictionary<Estaciones, DateTime> fechasDeInicioEstacion = new Dictionary<Estaciones, DateTime>()

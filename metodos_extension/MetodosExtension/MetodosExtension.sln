@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetodosExtension", "MetodosExtension.csproj", "{74A6DC14-5145-4FF8-9B3E-764ACE899629}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioteca", "..\Biblioteca\Biblioteca.csproj", "{FF22C960-DFFE-4935-A01A-34A7BEB1D5DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "..\Biblioteca\Entidades.csproj", "{FF22C960-DFFE-4935-A01A-34A7BEB1D5DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
